@@ -19,7 +19,7 @@ builder.Services.AddSession(options =>
 });
 
 var connectionString =
-    Environment.GetEnvironmentVariable("ConnectionStrings__CollegeDb");
+    builder.Configuration.GetConnectionString("CollegeDb");
 
 if (!string.IsNullOrWhiteSpace(connectionString))
 {
@@ -27,6 +27,11 @@ if (!string.IsNullOrWhiteSpace(connectionString))
         options.UseMySql(
             connectionString,
             ServerVersion.AutoDetect(connectionString)));
+}
+else
+{
+    throw new InvalidOperationException(
+        "Connection string 'CollegeDb' was not found in configuration.");
 }
 
 var app = builder.Build();
