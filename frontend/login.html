@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login - College Management System</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 5% 5%,
+                    rgba(255,255,255,0.10) 0,
+                    rgba(255,255,255,0.10) 240px,
+                    transparent 241px
+                ),
+                radial-gradient(
+                    circle at 100% 100%,
+                    rgba(255,255,255,0.10) 0,
+                    rgba(255,255,255,0.10) 250px,
+                    transparent 251px
+                ),
+                linear-gradient(
+                    120deg,
+                    #253b78,
+                    #2f55a3,
+                    #3281b5
+                );
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           LOGIN CARD
+           ========================= */
+
+        .login-card {
+            width: 510px;
+            max-width: 100%;
+
+            padding: 48px 48px 38px;
+
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            border: 1px solid #dbe3f0;
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.18);
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           LOGO
+           ========================= */
+
+        .logo-circle {
+            width: 86px;
+            height: 86px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #dceaff;
+
+            font-size: 42px;
+        }
+
+
+        /* =========================
+           TITLE
+           ========================= */
+
+        h1 {
+            margin: 0;
+
+            color: #21498a;
+
+            font-size: 31px;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+        }
+
+
+        .subtitle {
+            margin: 10px 0 36px;
+
+            color: #64748b;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           FORM
+           ========================= */
+
+        .form-group {
+            text-align: left;
+
+            margin-bottom: 22px;
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: #172b4d;
+
+            font-size: 16px;
+
+            font-weight: 600;
+        }
+
+
+        input {
+            width: 100%;
+
+            height: 54px;
+
+            padding: 13px 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 11px;
+
+            background: #f8fafc;
+
+            color: #172b4d;
+
+            font-family: inherit;
+
+            font-size: 16px;
+        }
+
+
+        input::placeholder {
+            color: #718096;
+        }
+
+
+        input:focus {
+            outline: none;
+
+            border-color: #3b82f6;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 3px rgba(59,130,246,0.10);
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+           ========================= */
+
+        button {
+            width: 100%;
+
+            height: 54px;
+
+            margin-top: 2px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2868df;
+
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background: #1e58c7;
+        }
+
+
+        button:disabled {
+            opacity: 0.7;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           MESSAGE
+           ========================= */
+
+        #message {
+            min-height: 22px;
+
+            margin: 18px 0 0;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           REGISTER LINK
+           ========================= */
+
+        .register-text {
+            margin: 34px 0 0;
+
+            color: #64748b;
+
+            font-size: 16px;
+        }
+
+
+        .register-text a {
+            color: #2166d1;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 18px;
+            }
+
+            .login-card {
+                padding: 35px 25px 30px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-card">
+
+
+    <!-- LOGO -->
+
+    <div class="logo-circle">
+        🎓
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1>
+        College Management<br>
+        System
+    </h1>
+
+
+    <p class="subtitle">
+        Student Management Portal
+    </p>
+
+
+    <!-- LOGIN FORM -->
+
+    <form id="loginForm">
+
+
+        <div class="form-group">
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required>
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="loginButton">
+
+            Login
+
+        </button>
+
+
+    </form>
+
+
+    <p id="message"></p>
+
+
+    <!-- REGISTER -->
+
+    <p class="register-text">
+
+        Don't have an account?
+
+        <a href="/register.html">
+            Register here
+        </a>
+
+    </p>
+
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value;
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+            const message =
+                document
+                    .getElementById("message");
+
+            const loginButton =
+                document
+                    .getElementById("loginButton");
+
+
+            message.textContent =
+                "Logging in...";
+
+            message.style.color =
+                "#2166d1";
+
+            loginButton.disabled = true;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/users/login",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    email: email,
+                                    password: password
+                                })
+                        }
+                    );
+
+
+                const result =
+                    await response.text();
+
+
+                if (
+                    response.ok &&
+                    result === "Login successful!"
+                ) {
+
+                    message.textContent =
+                        "Login successful!";
+
+                    message.style.color =
+                        "#15803d";
+
+
+                    setTimeout(
+                        function() {
+
+                            window.location.href =
+                                "/home.html";
+
+                        },
+                        500
+                    );
+
+
+                } else {
+
+                    message.textContent =
+                        result ||
+                        "Invalid email or password";
+
+                    message.style.color =
+                        "#dc2626";
+
+                    loginButton.disabled =
+                        false;
+                }
+
+
+            } catch (error) {
+
+                message.textContent =
+                    "Unable to connect to server.";
+
+                message.style.color =
+                    "#dc2626";
+
+                loginButton.disabled =
+                    false;
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

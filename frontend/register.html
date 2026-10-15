@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - College Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 5% 5%,
+                    rgba(255,255,255,0.10) 0,
+                    rgba(255,255,255,0.10) 240px,
+                    transparent 241px),
+                radial-gradient(circle at 100% 100%,
+                    rgba(255,255,255,0.10) 0,
+                    rgba(255,255,255,0.10) 250px,
+                    transparent 251px),
+                linear-gradient(120deg, #253b78, #2f55a3, #3281b5);
+            padding: 30px;
+        }
+
+        .register-card {
+            width: 510px;
+            max-width: 100%;
+            padding: 42px 48px;
+            background: #fff;
+            border-radius: 22px;
+            border: 1px solid #dbe3f0;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+            text-align: center;
+        }
+
+        .logo-circle {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #dceaff;
+            font-size: 38px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #21498a;
+            font-size: 30px;
+        }
+
+        .subtitle {
+            margin: 10px 0 28px;
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 19px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #172b4d;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            height: 52px;
+            padding: 13px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 11px;
+            background: #f8fafc;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2f65bd;
+            box-shadow: 0 0 0 3px rgba(47, 101, 189, 0.12);
+        }
+
+        button {
+            width: 100%;
+            min-height: 52px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 11px;
+            background: linear-gradient(120deg, #253b78, #3281b5);
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin: 18px 0 0;
+            overflow-wrap: anywhere;
+            font-size: 14px;
+        }
+
+        .login-text {
+            margin-top: 24px;
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        a {
+            color: #2459a6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+
+            .register-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="register-card">
+        <div class="logo-circle">🎓</div>
+
+        <h1>Create Account</h1>
+        <p class="subtitle">Join the College Management System</p>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Re-enter your password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required>
+            </div>
+
+            <button type="submit" id="registerButton">
+                Create Account
+            </button>
+        </form>
+
+        <p id="message" role="status" aria-live="polite"></p>
+
+        <p class="login-text">
+            Already have an account?
+            <a href="/login.html">Login here</a>
+        </p>
+    </main>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const message = document.getElementById("message");
+        const button = document.getElementById("registerButton");
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                message.textContent = "Passwords do not match.";
+                message.style.color = "#dc2626";
+                return;
+            }
+
+            button.disabled = true;
+            message.textContent = "Creating your account...";
+            message.style.color = "#2166d1";
+
+            try {
+                const response = await fetch("/users/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        password: password
+                    })
+                });
+
+                const result = await response.text();
+
+                if (response.ok) {
+                    message.textContent =
+                        "Registration successful! Redirecting to login...";
+                    message.style.color = "#15803d";
+
+                    form.reset();
+
+                    setTimeout(function () {
+                        window.location.href = "/login.html";
+                    }, 1200);
+                } else {
+                    message.textContent =
+                        result || "Registration failed. Please try again.";
+                    message.style.color = "#dc2626";
+                    button.disabled = false;
+                }
+            } catch (error) {
+                message.textContent =
+                    "Unable to connect to the server. Please try again.";
+                message.style.color = "#dc2626";
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

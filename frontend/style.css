@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #18233d;
+    color: #172b4d;
+}
+
+.page {
+    width: 94%;
+    max-width: 1650px;
+    margin: 26px auto;
+    padding: 34px;
+    background: #ffffff;
+    border-radius: 14px;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 28px 34px;
+    margin-bottom: 30px;
+
+    background: #ffffff;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.graduation-icon {
+    font-size: 32px;
+}
+
+.header-left h1 {
+    margin: 0;
+
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+
+    color: #21498a;
+}
+
+.header-left p {
+    margin: 7px 0 0 3px;
+
+    font-size: 17px;
+    color: #53657d;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+#userInfo {
+    margin: 0;
+
+    font-size: 16px;
+    color: #34445c;
+}
+
+.role-badge {
+    padding: 7px 18px;
+
+    border-radius: 20px;
+
+    background: #dceaff;
+    color: #1657c8;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+    padding: 34px;
+
+    margin-bottom: 30px;
+
+    background: #ffffff;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.11);
+}
+
+.card h2 {
+    margin: 0 0 27px 0;
+
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: 700;
+
+    color: #21498a;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+#studentForm {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 26px;
+    row-gap: 21px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 9px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #172b4d;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #172b4d;
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+input {
+    height: 50px;
+}
+
+select {
+    height: 50px;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #718096;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+
+    border-color: #3b82f6;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.form-actions {
+    grid-column: 1 / -1;
+
+    margin-top: 2px;
+}
+
+button {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2166d1;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1755b5;
+}
+
+#message {
+    margin: 18px 0 0;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #2166d1;
+}
+
+
+/* =========================
+   STUDENT MANAGEMENT
+   ========================= */
+
+.management-card h2 {
+    margin-bottom: 22px;
+}
+
+#studentsList {
+    width: 100%;
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    font-size: 15px;
+}
+
+th {
+    padding: 14px;
+
+    background: #2166d1;
+    color: #ffffff;
+
+    font-weight: 600;
+    text-align: left;
+}
+
+td {
+    padding: 14px;
+
+    border: 1px solid #d7dee8;
+
+    color: #263b59;
+}
+
+tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+tr:hover {
+    background: #eef5ff;
+}
+
+#studentsList button {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .page {
+        width: 96%;
+        padding: 20px;
+    }
+
+    .header-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header-right {
+        align-items: flex-start;
+    }
+
+    #studentForm {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width,
+    .form-actions {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page {
+        width: 98%;
+        margin: 10px auto;
+        padding: 12px;
+    }
+
+    .header-card,
+    .card {
+        padding: 22px;
+    }
+
+    .header-left h1 {
+        font-size: 27px;
+    }
+
+    .header-left p {
+        font-size: 15px;
+    }
+
+    .card h2 {
+        font-size: 25px;
+    }
+}
